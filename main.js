@@ -30,7 +30,22 @@ const divContainer = document.createElement("div");
 divContainer.classList.add("item-container");
 mainContainer.appendChild(divContainer);
 
-for (i = 0; i < 5; i++){
+const arrowUp = document.createElement("div");
+arrowUp.classList.add("arrow");
+arrowUp.id = "up";
+divContainer.append(arrowUp); 
+arrowUp.innerHTML = `
+<i class="fa-solid fa-arrow-up"></i>`;
+
+const arrowDown = document.createElement("div");
+arrowDown.classList.add("arrow");
+arrowDown.id = "down";
+divContainer.append(arrowDown);
+arrowDown.innerHTML = `
+<i class="fa-solid fa-arrow-down"></i>`;
+
+/* Crea item con immagine all'interno */
+for (let i = 0; i < images.length; i++){
    const divItem = document.createElement("div");
    divItem.classList.add("item");
    divContainer.append(divItem); 
@@ -38,4 +53,50 @@ for (i = 0; i < 5; i++){
    let imgItem = document.createElement("img");
    divItem.append(imgItem);
    imgItem.src = images[i].image;
+
+   let titleImage = document.createElement("h2");
+   divItem.append(titleImage);
+   titleImage.classList.add("titleImage");
+   titleImage.innerHTML = images[i].title;
+
+   let descImage = document.createElement("p");
+   divItem.append(descImage);
+   descImage.classList.add("descImage");
+   descImage.innerHTML = images[i].text;
+
+   if (i == 0) {
+    divItem.classList.add("active");
+   }
+
 }
+
+const oggetti = document.getElementsByClassName("item");
+const prossimo = document.getElementById("down");
+const precedente = document.getElementById("up");
+
+let show = 0;
+
+prossimo.addEventListener(`click`,
+
+    function () {
+        if (show < oggetti.length - 1) {
+
+            oggetti[show].classList.remove("active");
+
+            show++;
+
+            oggetti[show].classList.add("active");
+        }
+    });
+
+precedente.addEventListener(`click`,
+    function () {
+        if (show > oggetti.length - 5) {
+            oggetti[show].classList.remove("active");
+
+            show--;
+
+            oggetti[show].classList.add("active");
+        }
+    }
+);
