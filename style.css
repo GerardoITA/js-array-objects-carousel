@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+.container {
+    margin: 200px auto;
+}
+.item-container {
+    margin: 0 auto;
+    width: 1200px;
+    height: 800px;
+    position: relative;
+}
+.item {
+    display: none; 
+    width: 1200px;
+    height: 800px;
+
+}
+img {
+    width: 100%;
+    height: 100%;
+}
+/* /// Interactive /// */
+.active {
+    display: inline-block;
+}
+.hidden {
+    display: none;
+}
+
+#up {
+    top: 30px; 
+}
+#down {
+    bottom: 30px;
+}
+/* /// Cosmetics /// */
+.arrow {
+    background-color: rgb(200, 200, 200);
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
