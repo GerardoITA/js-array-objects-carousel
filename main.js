@@ -24,12 +24,18 @@ const images = [
     title: "Marvel's Avengers", 
     text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.', 
 }];
-
+/* Definisco main container */
+const mainContainer = document.getElementById("container");
 const divContainer = document.createElement("div");
 divContainer.classList.add("item-container");
-const mainContainer = document.getElementById("container");
 mainContainer.appendChild(divContainer);
 
-for (i = 0; i < images.length; i++){
-    
+for (i = 0; i < 5; i++){
+   const divItem = document.createElement("div");
+   divItem.classList.add("item");
+   divContainer.append(divItem); 
+
+   let imgItem = document.createElement("img");
+   divItem.append(imgItem);
+   imgItem.src = images[i].image;
 }
